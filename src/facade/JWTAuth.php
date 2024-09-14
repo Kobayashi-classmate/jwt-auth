@@ -10,7 +10,8 @@ use think\Facade;
  * @package thans\jwt\facade
  * @mixin \thans\jwt\JWTAuth
  * @method string builder(array $user = []) static Token构建
- * @method array auth() static Token验证
+ * @method array accessauth() static Token验证
+ * @method array refreshauth() static 刷新Token验证
  * @method string refresh() static Token刷新
  * @method array getPayload() static 获取Payload
  * @method mixed invalidate($token) static 添加Token至黑名单

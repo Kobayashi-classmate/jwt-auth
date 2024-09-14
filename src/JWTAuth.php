@@ -15,7 +15,22 @@ class JWTAuth extends JWT
      * @throws exception\TokenBlacklistException
      * @throws exception\TokenBlacklistGracePeriodException
      */
-    public function auth($validate = true)
+    public function accessauth($validate = true)
+    {
+        $this->manager->setValidate($validate);
+        return (array)$this->getPayload();
+    }
+    
+    /**
+     * Token验证，返回payload
+     *
+     * @param  boolean $validate 是否验证黑名单
+     * @return array
+     * @throws exception\JWTException
+     * @throws exception\TokenBlacklistException
+     * @throws exception\TokenBlacklistGracePeriodException
+     */
+    public function refreshauth($validate = false)
     {
         $this->manager->setValidate($validate);
         return (array)$this->getPayload();
